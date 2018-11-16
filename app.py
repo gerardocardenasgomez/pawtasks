@@ -3,9 +3,10 @@ from flask_restful import reqparse, abort, Api, Resource
 from db import *
 from peewee import *
 from flask_security import Security, PeeweeUserDatastore, UserMixin, RoleMixin, login_required, auth_token_required, current_user
+import os
 
 application = Flask(__name__)
-application.config['SECRET_KEY'] = '2RCGEorKSsl2hlGisHmD774uPZvoJKDbex21RkJBIYavTBlBt781AmWQVd7tQk8GxGfeIDSbttSvRC07'
+application.config['SECRET_KEY'] = os.environ['PAWTASKS_SECRET_KEY']
 api = Api(application)
 
 db.connect()

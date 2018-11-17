@@ -70,8 +70,8 @@ class UserRoles(Model):
     # Because peewee does not come with built-in many-to-many
     # relationships, we need this intermediary class to link
     # user to roles.
-    user = ForeignKeyField(Person, related_name='roles')
-    role = ForeignKeyField(Role, related_name='users')
+    user = ForeignKeyField(Person, backref='roles')
+    role = ForeignKeyField(Role, backref='users')
     name = property(lambda self: self.role.name)
     description = property(lambda self: self.role.description)
 

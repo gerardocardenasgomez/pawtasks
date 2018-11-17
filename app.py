@@ -19,8 +19,8 @@ parser = reqparse.RequestParser(bundle_errors=True)
 
 class Login(Resource):
     def post(self):
-        parser.add_argument('username', type=str, location='json', required=True)
-        parser.add_argument('password', type=str, location='json', required=True)
+        parser.add_argument('username', type=str, location='json', required=False)
+        parser.add_argument('password', type=str, location='json', required=False)
         args = parser.parse_args()
 
         username = args['username']
@@ -39,5 +39,5 @@ class Login(Resource):
             response.status_code = 422
             return response
 
-api.add_resource(User, '/user')
+api.add_resource(User, '/api/user')
 api.add_resource(Login, '/api/login')

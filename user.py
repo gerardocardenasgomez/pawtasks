@@ -4,7 +4,6 @@ from flask_security import Security, PeeweeUserDatastore, UserMixin, RoleMixin, 
 import app
 from db import *
 
-parser = reqparse.RequestParser(bundle_errors=True)
 user_datastore = PeeweeUserDatastore(db, Person, Role, UserRoles)
 
 class User(Resource):
@@ -13,6 +12,7 @@ class User(Resource):
         return jsonify({"message": {"username": current_user.username}})
     def post(self):
         #print request.url_rule
+        parser = reqparse.RequestParser(bundle_errors=True)
         parser.add_argument('username', type=str, location='json', required=True)
         parser.add_argument('password', type=str, location='json', required=True)
         parser.add_argument('email', type=str, location='json', required=True)

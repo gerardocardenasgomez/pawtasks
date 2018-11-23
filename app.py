@@ -15,10 +15,9 @@ db.connect()
 user_datastore = PeeweeUserDatastore(db, Person, Role, UserRoles)
 security = Security(application, user_datastore)
 
-parser = reqparse.RequestParser(bundle_errors=True)
-
 class Login(Resource):
     def post(self):
+        parser = reqparse.RequestParser(bundle_errors=True)
         parser.add_argument('username', type=str, location='json', required=False)
         parser.add_argument('password', type=str, location='json', required=False)
         args = parser.parse_args()

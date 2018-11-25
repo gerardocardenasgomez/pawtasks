@@ -1,0 +1,14 @@
+Flask==1.0.2
+Flask-BabelEx==0.9.3
+Flask-Mail==0.9.1
+Flask-Principal==0.4.0
+Flask-RESTful==0.3.6
+Flask-Security==3.0.0
+Flask-WTF==0.14.2
+gunicorn==19.9.0
+peewee==3.7.1
+pip==18.1
+psycopg2==2.6.1
+py==1.7.0
+ujson==1.35
+WTForms==2.2.1

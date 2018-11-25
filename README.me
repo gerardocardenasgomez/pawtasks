@@ -1,0 +1,23 @@
+# Pawtasks
+
+This is the repo for the code.
+
+## Running tests
+
+Run `pytest` on the main directory and watch the tests complete.
+
+## Running the app
+
+Run `gunicorn app` on the main directory.
+
+## Using the API
+
+`curl 127.0.0.1:8000/api/login -XPOST -d '{"username":"<username>", "password":"<password>"}' -H 'Content-type: application/json'`
+`curl 127.0.0.1:8000/api/user -XPOST -H "Content-Type:application/json" -d '{"username":"<username>", "password":"<password>", "email":"<email>"}'`
+`curl 127.0.0.1:8000/api/user -H 'Authentication-Token: <token>'`
+
+## Using Docker
+
+`docker run --restart=always --name pawtaskspsql --net pawtasksdev -p 10.12.0.42:5432:5432 -d -e POSTGRES_PASSWORD=<password> postgres`
+
+`docker run -it -d --env-file <filepath> -p 10.12.0.42:8000:8000 --net pawtasksdev <img>`

@@ -21,3 +21,14 @@ Run `gunicorn app` on the main directory.
 `docker run --restart=always --name pawtaskspsql --net pawtasksdev -p 10.12.0.42:5432:5432 -d -e POSTGRES_PASSWORD=<password> postgres`
 
 `docker run -it -d --env-file <filepath> -p 10.12.0.42:8000:8000 --net pawtasksdev <img>`
+
+## Using Terraform
+
+Requires logging into DockerHub so that you can access the private images.
+
+Create the `terraform.tfvars` files and add the required variables.
+
+```
+terraform plan
+terraform apply
+```

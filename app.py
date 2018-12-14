@@ -3,6 +3,7 @@ from flask_restful import reqparse, abort, Api, Resource
 from db import *
 from user import *
 from peewee import *
+from tasks import *
 from flask_security import Security, PeeweeUserDatastore, UserMixin, RoleMixin, login_required, auth_token_required, current_user
 import os
 
@@ -40,3 +41,4 @@ class Login(Resource):
 
 api.add_resource(User, '/api/user')
 api.add_resource(Login, '/api/login')
+api.add_resource(Tasks, '/api/tasks')

@@ -28,10 +28,22 @@ class Tasks(Resource):
         points = args['points']
         difficulty = args['difficulty']
 
-        # check if the date is valid
-        # https://stackoverflow.com/questions/9987818/in-python-how-to-check-if-a-date-is-valid
-
         created_date = datetime.datetime.now().strftime("%Y-%m-%d")
+
+        # check if the date is valid
+        try:
+            year, month, day = map(int, due_date.split("-"))
+            datetime.date(year, month, day)
+            if due_date < created_date:
+                raise ValueError('The due date cannot be before the current date!')
+        except ValueError as e:
+            response = jsonify({'message': {'due_date': e}})
+            response.status_code = 400
+            return response
+        except Exception:
+            response = jsonify({'message': {'due_date':'The date format needs to be YYYY-MM-DD'}})
+            response.status_code = 400
+            return response
 
         user_task = Task.create(title=title,
                                 due_date=due_date,

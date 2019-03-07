@@ -12,11 +12,13 @@ Run `gunicorn app` on the main directory.
 
 ## Using the API
 
-```curl 127.0.0.1:8000/api/login -XPOST -d '{"username":"<username>", "password":"<password>"}' -H 'Content-type: application/json'
+```
+curl 127.0.0.1:8000/api/login -XPOST -d '{"username":"<username>", "password":"<password>"}' -H 'Content-type: application/json'
 curl 127.0.0.1:8000/api/user -XPOST -H "Content-Type:application/json" -d '{"username":"<username>", "password":"<password>", "email":"<email>"}'
 curl 127.0.0.1:8000/api/user -H 'Authentication-Token: <token>'
 curl 127.0.0.1:8000/api/tasks -XPOST -H "Authentication-Token: <token>" -H 'Content-Type:application/json' -d '{"title":"<title>", "due_date":"<due_date>", "points":<points_int>, "difficulty":"<difficulty>"}'
-curl 127.0.0.1:8000/api/tasks -H 'Authentication-Token: <token>'```
+curl 127.0.0.1:8000/api/tasks -H 'Authentication-Token: <token>'
+```
 
 ## Using Docker
 

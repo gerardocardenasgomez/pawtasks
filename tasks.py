@@ -14,6 +14,7 @@ class Tasks(Resource):
         for task in current_user.tasks:
             task_titles.append(task.title)
         return jsonify({'message': {'tasks': task_titles}})
+
     @auth_token_required
     def post(self):
         parser = reqparse.RequestParser(bundle_errors=True)

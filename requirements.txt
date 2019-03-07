@@ -12,3 +12,4 @@ psycopg2==2.6.1
 py==1.7.0
 ujson==1.35
 WTForms==2.2.1
+pytest
